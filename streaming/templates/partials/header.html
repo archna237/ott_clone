@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <title>Custom Header</title>
+  <style>
+
+  </style>
+</head>
+<body class="dark">
+
+<header>
+  {% comment %} <div class="logo">
+    <img src="{% static 'images/logo1.svg' %}" alt="Logo">
+  </div> {% endcomment %}
+  <div class="logo">
+    <img src="{% static 'images/logo1.png' %}" alt="Logo" class="logo-img dark-logo">
+    <img src="{% static 'images/logo4.png' %}" alt="Logo" class="logo-img light-logo">
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#">FREE</a>
+    <a href="#">Sort Series</a>
+    <a href="#">K-Drama</a>
+    <a href="#">C-Drama</a>
+    <a href="#">Thai-Drama</a>
+    <a href="#">Reality Show</a>
+    <a href="#">Movies</a>
+    <a href="#">Anime</a>
+    <a href="#">All</a>
+  </nav>
+
+  <div class="search-container">
+  <input type="text" placeholder="Search..." />
+  <i class="fas fa-search"></i>
+    </div>
+
+    <div class="header-right">
+        <div class="btns">
+            <div class="vip-btn active">👑 VIP</div>
+        </div>
+        <div class="btns">
+          {% comment %} <div class="vip login-btn">Login {% endcomment %}
+          <button class="vip" onclick="document.getElementById('auth-popup').style.display = 'flex';">Login</button>
+
+        </div>
+    </div>
+        </div>
+        <div class="profile-menu">
+          <div class="profile-button" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="dropdown" id="profile-dropdown">
+            <a href="#"><i class="fas fa-plus-circle"></i> My List</a>
+            <a href="#"><i class="fas fa-language"></i> Language Preferences</a>
+            <a href="#"><i class="fas fa-history"></i> Watch History</a>
+
+            <div class="toggle">
+              <div class="toggle-label">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="darkModeToggle" checked/>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <a href="#"><i class="fas fa-tv"></i> Activate TV</a>
+            <a href="#"><i class="fas fa-download"></i> Download App</a>
+            <a href="#"><i class="fas fa-question-circle"></i> Help Center</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("menu-toggle");
+    const nav = document.querySelector("nav");
+
+    toggleBtn.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
+  });
+</script>
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const dropdown = document.getElementById('profile-dropdown');
+
+  // Toggle dropdown
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+    dropdown.classList.toggle('show');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

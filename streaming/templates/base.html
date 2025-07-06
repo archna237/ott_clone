@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My OTT{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+  <script src="{% static 'js/main.js' %}"></script>
+  <script>
+    const REGISTER_URL = "{% url 'register' %}";
+  </script>
+  <script src="{% static 'js/auth.js' %}"></script>
+  <script src="{% static 'js/theme-toggle.js' %}"></script>
+</head>
+<body>
+  <!-- Header -->
+  {% include 'partials/header.html' %}
+{% include 'partials/auth_popup.html' %}
+{% if signup_success %}
+    <div id="signup_success_flag" style="display: none;"></div>
+{% endif %}
+{% if signup_success %}
+<div id="signup_success_flag" style="display: none;"></div>
+<script>
+    alert("Registration Successful!");
+</script>
+{% endif %}
+
+{% if error == "email_exists" %}
+<script>
+    alert("Email already exists!");
+</script>
+{% endif %}
+
+  <!-- Main Content Area -->
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  {% include 'partials/footer.html' %}
+  
+
+
+</body>
+</html>

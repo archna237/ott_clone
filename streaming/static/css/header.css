@@ -1,0 +1,408 @@
+/* ===== Base Styles ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+.dark {
+  background-color: #050a30;
+  color: #fff;
+}
+.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.logo-img {
+  height: 80px;
+  object-fit: contain;
+  display: none;
+}
+
+.dark .dark-logo {
+  display: block;
+}
+
+.light .light-logo {
+  display: block;
+}
+
+
+/* ===== Header ===== */
+header {
+  position: fixed; /* changed from static to fixed */
+  top: 0;
+  left: 0;
+  right: 0; /* ensures it stretches full width */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  transition: background 0.3s;
+  z-index: 1000; /* keeps it above other elements */
+}
+.dark header {
+  background-color: #050a30;
+}
+.light header {
+  background-color: #fff;
+}
+
+.logo img {
+  height: 80px;
+  object-fit: contain;
+}
+
+
+
+
+/* ===== Navigation ===== */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 20px;
+  flex: 1;
+}
+nav a {
+  text-decoration: none;
+  font-size: 16px;
+}
+.dark nav a {
+  color: #fff;
+}
+.light nav a {
+  color: #333;
+}
+nav a.active {
+  font-weight: bold;
+}
+.dark nav a.active {
+  color: #e50914;
+}
+.light nav a.active {
+  color: #c20000;
+}
+
+
+
+/* ===== Search Bar ===== */
+.search-container {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin-right: 15px;
+  transition: all 0.3s;
+}
+.dark .search-container {
+  background-color: transparent;
+  border: 1px solid #888;
+}
+.light .search-container {
+  background-color: #f0f0f0;
+  border: 1px solid #333;
+}
+.search-container input {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: inherit;
+}
+.search-container input::placeholder {
+  color: #ccc;
+}
+.search-container i {
+  font-size: 16px;
+  margin-left: 10px;
+}
+.dark .search-container i {
+  color: #e50914;
+}
+.light .search-container i {
+  color: #c20000;
+}
+
+
+/* ===== Header Right Buttons ===== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.btns {
+  display: flex;
+  gap: 10px;
+}
+.vip {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.dark .vip {
+  color: white;
+}
+.light .vip{
+  color: black;
+}
+.vip-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-menu:hover .dropdown {
+  display: block;
+}
+
+
+/* ===== Profile Menu & Dropdown ===== */
+.profile-menu {
+  position: relative;
+  margin-right: 15px;
+}
+.profile-button {
+  background-color: transparent;
+  color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.profile-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  padding: 20px;
+  width: 230px;
+  border-radius: 10px;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dark .dropdown {
+  background-color: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.light .dropdown {
+  background-color: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.dropdown a:last-child {
+  border-bottom: none;
+}
+.dark .dropdown a {
+  color: #fff;
+}
+.light .dropdown a {
+  color: #000;
+}
+.dropdown a:hover {
+  color: #e50914;
+}
+
+
+.dropdown a:last-child {
+  border-bottom: none;
+}
+
+.dropdown a:hover {
+  color: #e50914;
+}
+
+/* ===== Dark Mode Toggle Row ===== */
+.dropdown .toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+}
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 18px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #888;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #e50914;
+}
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/* ===== Category Bar ===== */
+.category-bar {
+  display: flex;
+  gap: 40px;
+  padding: 10px 45px;
+  background-color: #050a30;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+.category-bar a {
+  color: #fff;
+  text-decoration: none;
+}
+.category-bar a.active {
+  color: #e50914;
+  font-weight: bold;
+}
+
+/* ===== Responsive Styles ===== */
+/* @media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    align-items: flex-start;
+  }
+  nav {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  .search-container,
+  .btns,
+  .profile-menu {
+    margin-top: 10px;
+  }
+  .category-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Base logo styles */
+.logo img {
+  height: 50px;
+  display: none;
+}
+.light .light-logo {
+  display: block;
+}
+.dark .dark-logo {
+  display: block;
+}
+
+/* Menu toggle button (only visible on small screens) */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive nav styling */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  nav.show {
+    transform: translateX(0);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .search-container{
+    margin: 6px 6px;
+  }
+.search-container input {
+  width: 0px;
+}
+}
